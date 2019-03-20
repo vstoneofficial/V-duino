@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<robot name="ptc_demo">
+    <!--base link-->
+    <link name="base">
+        <visual>
+            <geometry>
+                <mesh filename="package://picco_ptc/ptc_description/meshes/body.dae" scale="0.0011 0.0011 0.0011" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </visual>
+    </link>
+
+    <!--pan_link-->
+    <link name="pan" />
+
+    <!--camera(tilt)_link-->
+    <link name="camera">
+        <visual>
+            <geometry>
+                <mesh filename="package://picco_ptc/ptc_description/meshes/head.dae" scale="0.001 0.001 0.001" />
+            </geometry>
+            <origin xyz="0.185 0 0" rpy="1.57 -1.57 0" />
+        </visual>
+    </link>
+
+    <!-- base2pan-->
+    <joint name="base2pan" type="revolute">
+        <parent link="base"/>
+        <child link="pan"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-1.57" upper="1.57" effort="1000" velocity="2.0"/>
+        <origin xyz="0 0 0.148" rpy="0 0 0" />
+    </joint>
+
+    <!-- pan2tilt-->
+    <joint name="pan2camera" type="revolute">
+        <parent link="pan"/>
+        <child link="camera"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.6" upper="0.3" effort="1000" velocity="2.0"/>
+        <origin xyz="0 0 0.05" rpy="-1.57 0 -1.57"/>
+    </joint>
+
+</robot>
