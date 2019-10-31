@@ -1,4 +1,4 @@
-#define WIRE_CLK      400000  //I2C clock 400kHz
+#define WIRE_CLK      100000  //I2C clock 100kHz
 #define DEV_ADDR      0x50    //Device address
 
 //Register address
@@ -96,7 +96,7 @@
 #define BUZZER_SCALE  0x83
 
 #define SENS_NUM            3       //Number of sensor
-#define SV_LIMIT_MIN        -2500      
+#define SV_LIMIT_MIN        -2500
 #define SV_LIMIT_MAX        2500
 #define OFFSET_LIMIT        500
 #define SV_NUM              10      //Number of servo
@@ -106,7 +106,7 @@
 #define LED_LIMIT           1000
 #define MODE_OVERRIDE       0x00
 #define MODE_SEQUENCE       0x01
-#define SV_FLAG             0x01    
+#define SV_FLAG             0x01
 #define TRIG 14                    //SONIC trig pin
 #define ECHO 12                    //SONIC echo pin
 
@@ -257,4 +257,3 @@ int read2byte(unsigned char addr);
 int read1byte(unsigned char addr);
 int write2byte(unsigned char addr, short data);
 int write1byte(unsigned char addr, unsigned char data);
-
